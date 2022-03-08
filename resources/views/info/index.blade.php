@@ -24,6 +24,8 @@
 @endforelse
 </ul>
 
+<a href="{{ url('/about') }}">關於我們</a>
+
 <!--? slider Area Start -->
 <div class="slider-area ">
     <div class="slider-active">

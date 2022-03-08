@@ -52,6 +52,8 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/test', 'SiteController@doTest');
     Route::get('/gamer', 'SiteController@renderGamerPage');
     Route::get('/store', 'SiteController@renderStorePage');
+    Route::get('/contact', 'SiteController@renderContactPage');
+    Route::post('/contact', 'SiteController@saveContact');
 });
 
 Route::resource('item', 'App\Http\Controllers\ItemController');
@@ -60,3 +62,13 @@ Route::resource('item', 'App\Http\Controllers\ItemController');
 Route::get('/url', function () {
     return url()->previous();
 });
+
+//轉址的例子
+Route::get('/baha', function () {
+    return redirect('https://www.gamer.com.tw');
+});
+
+// Route::get('/about2', function () {
+//     return redirect(url('/about'));
+// });
+Route::redirect('/about2', 'http://web1102.test/about', 301);

@@ -37,4 +37,13 @@ class SiteController extends Controller
     {
         return view('info.about');
     }
+
+    public function renderContactPage()
+    {
+        return view('contact');
+    }
+
+    public function saveContact(Request $request)
+    {
+    }
 }
