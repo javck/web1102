@@ -3,7 +3,7 @@
 @section('title','首頁')
 
 @section('content')
-
+{{ $name }}
 @if ($age > 20)
     你可以開車
 @elseif($age > 18)

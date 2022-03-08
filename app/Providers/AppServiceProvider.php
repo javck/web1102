@@ -23,6 +23,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //全域共用變數
         view()->share('name', 'Zack');
+        //指定視圖共用變數
+        view()->composer('info.*', function ($view) {
+            $view->with('name', 'Zack');
+        });
     }
 }

@@ -30,11 +30,11 @@ class SiteController extends Controller
         $age = 19;
         //$items = ['ps5' => 'PS5', 'swtich' => 'Nintendo Switch', 'xbox' => 'XBOX'];
         $items = [];
-        return view('index', compact('age', 'items'));
+        return view('info.index', compact('age', 'items'));
     }
 
     public function renderAboutPage()
     {
-        return view('about');
+        return view('info.about');
     }
 }

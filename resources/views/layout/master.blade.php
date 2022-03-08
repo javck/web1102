@@ -101,7 +101,6 @@
         <!-- Header End -->
     </header>
     <main>
-        {{ $name }}
         @yield('content')
 
         @section('js')
