@@ -40,10 +40,14 @@ class SiteController extends Controller
 
     public function renderContactPage()
     {
-        return view('contact');
+        //$modes = ['blog' => '部落格', 'film' => '影片', 'tweat' => 'TWEAT'];
+        $modes = ['影片' => ['video' => '長影片', 'tiktok' => '短影片'], '文章' => ['blog' => '部落格', 'tweat' => 'TWEAT']];
+        //dd($modes);
+        return view('contact', compact('modes'));
     }
 
     public function saveContact(Request $request)
     {
+        dd($request->all());
     }
 }
