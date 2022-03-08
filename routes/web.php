@@ -48,6 +48,7 @@ Route::prefix('/users')->group(function () {
 
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/', 'SiteController@renderHomePage');
+    Route::get('/about', 'SiteController@renderAboutPage');
     Route::get('/test', 'SiteController@doTest');
     Route::get('/gamer', 'SiteController@renderGamerPage');
     Route::get('/store', 'SiteController@renderStorePage');

@@ -4,6 +4,26 @@
 
 @section('content')
 
+@if ($age > 20)
+    你可以開車
+@elseif($age > 18)
+    你可以喝酒
+@endif
+
+<ul>
+@forelse ($items as $item)
+    @if ($loop->first)
+        =========================>
+    @endif
+    <li>{{ $loop->iteration }} - {{ $item }}</li>
+    @if ($loop->last)
+        <=========================
+    @endif
+    @empty
+    目前沒有商品
+@endforelse
+</ul>
+
 <!--? slider Area Start -->
 <div class="slider-area ">
     <div class="slider-active">
@@ -347,3 +367,8 @@
 </div>
 <!-- Shop Method End-->
 @endsection
+
+@section('js')
+    <script js="me.js">
+        @parent
+@stop

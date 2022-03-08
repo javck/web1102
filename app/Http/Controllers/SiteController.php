@@ -27,7 +27,14 @@ class SiteController extends Controller
 
     public function renderHomePage()
     {
-        $name = 'zack';
-        return view('index', compact('name'));
+        $age = 19;
+        //$items = ['ps5' => 'PS5', 'swtich' => 'Nintendo Switch', 'xbox' => 'XBOX'];
+        $items = [];
+        return view('index', compact('age', 'items'));
+    }
+
+    public function renderAboutPage()
+    {
+        return view('about');
     }
 }

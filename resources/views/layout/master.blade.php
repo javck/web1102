@@ -103,6 +103,10 @@
     <main>
         {{ $name }}
         @yield('content')
+
+        @section('js')
+            <script src="test.js" />
+        @show
     </main>
     <footer>
         <!-- Footer Start-->
