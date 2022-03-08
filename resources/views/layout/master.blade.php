@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js') }}" lang="zxx">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -11,16 +11,16 @@
 
     <!-- CSS here -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
@@ -104,7 +104,7 @@
         @yield('content')
 
         @section('js')
-            <script src="test.js" />
+            <script src="test.js') }}" />
         @show
     </main>
     <footer>
@@ -205,38 +205,38 @@
 
     <!-- JS here -->
 
-    <script src="./js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src="./js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="./js/popper.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- Jquery Mobile Menu -->
-    <script src="./js/jquery.slicknav.min.js"></script>
+    <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
 
     <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src="./js/owl.carousel.min.js"></script>
-    <script src="./js/slick.min.js"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/slick.min.js') }}"></script>
 
     <!-- One Page, Animated-HeadLin -->
-    <script src="./js/wow.min.js"></script>
-    <script src="./js/animated.headline.js"></script>
-    <script src="./js/jquery.magnific-popup.js"></script>
+    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <script src="{{ asset('js/animated.headline.js') }}"></script>
+    <script src="{{ asset('js/jquery.magnific-popup.js') }}"></script>
 
     <!-- Scrollup, nice-select, sticky -->
-    <script src="./js/jquery.scrollUp.min.js"></script>
-    <script src="./js/jquery.nice-select.min.js"></script>
-    <script src="./js/jquery.sticky.js"></script>
+    <script src="{{ asset('js/jquery.scrollUp.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.sticky.js') }}"></script>
     
     <!-- contact js -->
-    <script src="./js/contact.js"></script>
-    <script src="./js/jquery.form.js"></script>
-    <script src="./js/jquery.validate.min.js"></script>
-    <script src="./js/mail-script.js"></script>
-    <script src="./js/jquery.ajaxchimp.min.js"></script>
+    <script src="{{ asset('js/contact.js') }}"></script>
+    <script src="{{ asset('js/jquery.form.js') }}"></script>
+    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('js/mail-script.js') }}"></script>
+    <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
     
     <!-- Jquery Plugins, main Jquery -->	
-    <script src="./js/plugins.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="{{ asset('js/plugins.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     
 </body>
 </html>

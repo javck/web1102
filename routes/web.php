@@ -103,7 +103,9 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('/gamer', 'MySiteController@renderGamerPage');
     Route::get('/store', 'MySiteController@renderStorePage');
     Route::get('/contact', 'MySiteController@renderContactPage');
-    Route::post('/contact', 'MyMySiteController@saveContact');
+    Route::post('/contact', 'MySiteController@saveContact');
+    Route::get('/contact/{contact}/edit', 'MySiteController@editContactPage');
+    Route::put('/contact/{contact}', 'MySiteController@updateContact');
 });
 
 Route::resource('item', 'App\Http\Controllers\ItemController');

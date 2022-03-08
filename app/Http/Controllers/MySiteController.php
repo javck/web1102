@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class MySiteController extends Controller
@@ -43,11 +44,26 @@ class MySiteController extends Controller
         //$modes = ['blog' => '部落格', 'film' => '影片', 'tweat' => 'TWEAT'];
         $modes = ['影片' => ['video' => '長影片', 'tiktok' => '短影片'], '文章' => ['blog' => '部落格', 'tweat' => 'TWEAT']];
         //dd($modes);
-        return view('contact', compact('modes'));
+        return view('contacts.create', compact('modes'));
+    }
+
+    public function editContactPage($id)
+    {
+        $contact = Contact::findOrFail($id);
+        $modes = ['影片' => ['video' => '長影片', 'tiktok' => '短影片'], '文章' => ['blog' => '部落格', 'tweat' => 'TWEAT']];
+        return view('contacts.edit', compact('contact', 'modes'));
+    }
+
+    public function updateContact($id, Request $request)
+    {
+        $contact = Contact::findOrFail($id);
     }
 
     public function saveContact(Request $request)
     {
-        dd($request->all());
+        $data = $request->all();
+        $data['equips'] = implode(',', $data['equips']);
+        $contact = Contact::create($data);
+        dd($contact);
     }
 }
