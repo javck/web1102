@@ -47,7 +47,7 @@ Route::prefix('/users')->group(function () {
 });
 
 Route::namespace('App\Http\Controllers')->group(function () {
-    Route::get('/', 'SiteController@renderHomePage');
+    Route::get('/', 'SiteController@renderHomePage')->name('index');
     Route::get('/about', 'SiteController@renderAboutPage');
     Route::get('/test', 'SiteController@doTest');
     Route::get('/gamer', 'SiteController@renderGamerPage');
@@ -56,3 +56,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
 
 Route::resource('item', 'App\Http\Controllers\ItemController');
 //Route::apiResource('item', 'App\Http\Controllers\ItemController');
+
+Route::get('/url', function () {
+    return url()->previous();
+});
