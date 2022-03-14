@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 
 class MySiteController extends Controller
 {
@@ -59,9 +60,10 @@ class MySiteController extends Controller
         $contact = Contact::findOrFail($id);
     }
 
-    public function saveContact(Request $request)
+    public function saveContact(ContactRequest $request)
     {
-        $data = $request->all();
+        $data = $request->all(); //取得所有欄位資料
+        dd($request->all());
         $data['equips'] = implode(',', $data['equips']);
         $contact = Contact::create($data);
         dd($contact);
