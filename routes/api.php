@@ -26,3 +26,6 @@ Route::group(['namespace' => '\Javck\Ezlaravel\Http\Controllers'], function () {
     Route::post('elements/queryPositions', 'ApiController@queryPositions');
     Route::post('elements/queryElementModes', 'ApiController@queryElementModes');
 });
+
+Route::get('/hello/{name}', 'App\Http\Controllers\Api\HelloController@getHello');
+Route::post('/hello', 'App\Http\Controllers\Api\HelloController@postHello');
