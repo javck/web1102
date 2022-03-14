@@ -37,7 +37,8 @@ class MySiteController extends Controller
 
     public function renderAboutPage()
     {
-        return view('info.about');
+        return response()->view('info.about', [], 202)->header('Content-Type', 'JSON');
+        //return view('info.about');
     }
 
     public function renderContactPage()

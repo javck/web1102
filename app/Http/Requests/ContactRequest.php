@@ -13,6 +13,8 @@ class ContactRequest extends FormRequest
      */
     public function authorize()
     {
+        //呼叫 .NET 驗證API
+        //$result = callAPI()['result'];
         return true;
     }
 
