@@ -15,12 +15,6 @@ class OrderDetailSeeder extends Seeder
     public function run()
     {
         OrderDetail::truncate();
-
-        OrderDetail::create([
-            'order_id' => 1,
-            'product_id' => 1,
-            'unit_price' => 100,
-            'prod_qty' => 1,
-        ]);
+        OrderDetail::factory()->times(200)->create();
     }
 }
