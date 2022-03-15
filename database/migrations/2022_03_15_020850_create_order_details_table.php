@@ -15,8 +15,8 @@ class CreateOrderDetailsTable extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('order_id', 20);
-            $table->bigInteger('product_id', 20);
+            $table->bigInteger('order_id');
+            $table->bigInteger('product_id');
             $table->decimal('unit_price', 18, 2);
             $table->integer('prod_qty');
             $table->timestamps();

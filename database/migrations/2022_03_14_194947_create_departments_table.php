@@ -15,7 +15,7 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('dept_id', 20);
+            $table->bigInteger('dept_id');
             $table->string('dept_name_c', 50);
             $table->string('dept_name_e', 50);
             $table->text('remark')->nullable();

@@ -15,19 +15,17 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->bigIntegr('customer_id', 20);
-            $table->string('cust_name', 50);
-            $table->timestamps('order_date');
+            $table->bigInteger('customer_id');
             $table->string('order_type', 1);
-            $table->bigIntegr('employee_id', 20);
+            $table->bigInteger('employee_id');
             $table->string('email', 50);
             $table->string('receiver', 20);
             $table->string('ship_addr', 100);
             $table->decimal('total', 18, 2);
             $table->decimal('salestax', 18, 2);
             $table->decimal('amt', 18, 2);
-            $table->bigIntegr('pmt_id', 1);
-            $table->bigIntegr('ship_id', 1);
+            $table->bigInteger('pmt_id');
+            $table->bigInteger('ship_id');
             $table->string('order_guid', 20);
             $table->integer('validation');
             $table->integer('closed');

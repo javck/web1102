@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder
             // MyRoleSeeder::class,
             // MyPermissionRoleSeeder::class,
             // MyTranslationSeeder::class
-            CustomerSeeder::class
+            CustomerSeeder::class,
+            OrderSeeder::class
         ]);
         //enable foreign key check for this connection before running seeders
         $this->setFKCheckOn();
