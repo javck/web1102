@@ -20,25 +20,26 @@ class DatabaseSeeder extends Seeder
         //disable foreign key check for this connection before running seeders
         $this->setFKCheckOff();
         $this->call([
-            MySettingSeeder::class,
-            CgySeeder::class,
-            TagSeeder::class,
-            UserSeeder::class,
-            ArticleSeeder::class,
-            CommentSeeder::class,
-            ElementSeeder::class,
-            PortfolioSeeder::class,
-            //ContactSeeder::class,
-            ItemSeeder::class,
-            OrderSeeder::class,
-            MyDataTypeSeeder::class,
-            MyDataRowSeeder::class,
-            MyMenuSeeder::class,
-            MyMenuItemSeeder::class,
-            MyPermissionSeeder::class,
-            MyRoleSeeder::class,
-            MyPermissionRoleSeeder::class,
-            MyTranslationSeeder::class
+            // MySettingSeeder::class,
+            // CgySeeder::class,
+            // TagSeeder::class,
+            // UserSeeder::class,
+            // ArticleSeeder::class,
+            // CommentSeeder::class,
+            // ElementSeeder::class,
+            // PortfolioSeeder::class,
+            // //ContactSeeder::class,
+            // ItemSeeder::class,
+            // OrderSeeder::class,
+            // MyDataTypeSeeder::class,
+            // MyDataRowSeeder::class,
+            // MyMenuSeeder::class,
+            // MyMenuItemSeeder::class,
+            // MyPermissionSeeder::class,
+            // MyRoleSeeder::class,
+            // MyPermissionRoleSeeder::class,
+            // MyTranslationSeeder::class
+            CustomerSeeder::class
         ]);
         //enable foreign key check for this connection before running seeders
         $this->setFKCheckOn();

@@ -29,3 +29,4 @@ Route::group(['namespace' => '\Javck\Ezlaravel\Http\Controllers'], function () {
 
 Route::get('/hello/{name}', 'App\Http\Controllers\Api\HelloController@getHello');
 Route::post('/hello', 'App\Http\Controllers\Api\HelloController@postHello');
+Route::post('/times', 'App\Http\Controllers\Api\HelloController@times');
