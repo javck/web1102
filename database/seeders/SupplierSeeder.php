@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\OrderDetail;
+use App\Models\Supplier;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
-class OrderDetailSeeder extends Seeder {
+class SupplierSeeder extends Seeder {
 	/**
 	 * Run the database seeds.
 	 *
@@ -14,8 +14,8 @@ class OrderDetailSeeder extends Seeder {
 	 */
 	public function run() {
 		//把資料全部清光
-		OrderDetail::truncate();
+		Supplier::truncate();
 		//建立新資料
-		OrderDetail::factory()->times(50)->create();
+		Supplier::factory()->times(5)->create();
 	}
 }
