@@ -6,13 +6,15 @@ use DB;
 use Eloquent;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder {
+class DatabaseSeeder extends Seeder
+{
 	/**
 	 * Seed the application's database.
 	 *
 	 * @return void
 	 */
-	public function run() {
+	public function run()
+	{
 		Eloquent::unguard();
 
 		//disable foreign key check for this connection before running seeders
@@ -23,7 +25,7 @@ class DatabaseSeeder extends Seeder {
 			EmployeeSeeder::class,
 			ProductSeeder::class,
 			OrderSeeder::class,
-			OrderDetailSeeder::class,
+			OrderProductSeeder::class,
 			ProcurementSeeder::class,
 			ProcurementDetailSeeder::class,
 			SaleSeeder::class,
@@ -35,25 +37,27 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::reguard();
 	}
 
-	private function setFKCheckOff() {
+	private function setFKCheckOff()
+	{
 		switch (DB::getDriverName()) {
-		case 'mysql':
-			DB::statement('SET FOREIGN_KEY_CHECKS=0');
-			break;
-		case 'sqlite':
-			DB::statement('PRAGMA foreign_keys = OFF');
-			break;
+			case 'mysql':
+				DB::statement('SET FOREIGN_KEY_CHECKS=0');
+				break;
+			case 'sqlite':
+				DB::statement('PRAGMA foreign_keys = OFF');
+				break;
 		}
 	}
 
-	private function setFKCheckOn() {
+	private function setFKCheckOn()
+	{
 		switch (DB::getDriverName()) {
-		case 'mysql':
-			DB::statement('SET FOREIGN_KEY_CHECKS=1');
-			break;
-		case 'sqlite':
-			DB::statement('PRAGMA foreign_keys = ON');
-			break;
+			case 'mysql':
+				DB::statement('SET FOREIGN_KEY_CHECKS=1');
+				break;
+			case 'sqlite':
+				DB::statement('PRAGMA foreign_keys = ON');
+				break;
 		}
 	}
 }

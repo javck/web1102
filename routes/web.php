@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Sale;
+use App\Models\Order;
+use App\Models\Product;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -140,4 +142,17 @@ Route::get('/customers/getsales', function () {
     $sale2 = Sale::find(2);
     $customer->sales()->save($sale2);
     dd($customer->sales);
+});
+
+Route::get('/orders/getProducts', function () {
+    $order = Order::find(1);
+    $product = Product::find(6);
+    //$order->products()->save($product, ['unit_price' => 1000, 'qty' => 1]);
+    $order->products()->sync([2 => ['unit_price' => 1000, 'qty' => 1], 4 => ['unit_price' => 1000, 'qty' => 1]]);
+    dd($order->products);
+});
+
+Route::get('/products/getOrders', function () {
+    $product = Product::find(1);
+    dd($product->orders()->first()->pivot->unit_price);
 });
