@@ -67,7 +67,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //return $request->all();
+        return $request->all();
 
         //變更單一欄位
         // $product->name = $request->name;

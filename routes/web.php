@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Sale;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
@@ -124,3 +126,11 @@ Route::get('/baha', function () {
 //     return redirect(url('/about'));
 // });
 Route::redirect('/about2', 'http://web1102.test/about', 301);
+
+Route::get('/sales/getcustomer', function () {
+    $sale = Sale::find(1);
+    $customer = Customer::find(2);
+    $sale->customer()->associate($customer);
+    $sale->save();
+    dd($sale->customer);
+});
