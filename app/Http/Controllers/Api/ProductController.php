@@ -15,7 +15,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $status = false;
+        $products = Product::where('category_id', '中等')->where('supplier_id', 2)->orderBy('qty_instock', 'asc')->get();
+        if (isset($products)) {
+            $status = true;
+        }
+        return ['status' => $status, 'result' => $products];
     }
 
     /**
@@ -44,7 +49,13 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $status = false;
+        //$product = Product::findOrFail($id);
+        $product = Product::where('category_id', 'Game')->first();
+        if (isset($product)) {
+            $status = true;
+        }
+        return ['status' => $status, 'result' => $product];
     }
 
     /**
