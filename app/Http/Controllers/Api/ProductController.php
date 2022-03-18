@@ -65,9 +65,22 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        //return $request->all();
+
+        //變更單一欄位
+        // $product->name = $request->name;
+        // $rows = $product->save();
+
+        //多欄位涵蓋
+        $rows = $product->update($request->all());
+
+        if ($rows == 1) {
+            return ['status' => true];
+        } {
+            return  ['status' => false];
+        }
     }
 
     /**
@@ -76,8 +89,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $status = $product->delete();
+        return ['status' => $status];
+    }
+
+    public function demoModelBinding(Product $product)
+    {
+        //$product = Product::find($product);
+        dd($product);
     }
 }
