@@ -134,3 +134,10 @@ Route::get('/sales/getcustomer', function () {
     $sale->save();
     dd($sale->customer);
 });
+
+Route::get('/customers/getsales', function () {
+    $customer = Customer::find(1);
+    $sale2 = Sale::find(2);
+    $customer->sales()->save($sale2);
+    dd($customer->sales);
+});
