@@ -26,19 +26,3 @@ Route::group(['namespace' => '\Javck\Ezlaravel\Http\Controllers'], function () {
     Route::post('elements/queryPositions', 'ApiController@queryPositions');
     Route::post('elements/queryElementModes', 'ApiController@queryElementModes');
 });
-
-Route::get('/hello/{name}', 'App\Http\Controllers\Api\HelloController@getHello');
-Route::post('/hello', 'App\Http\Controllers\Api\HelloController@postHello');
-Route::post('/times', 'App\Http\Controllers\Api\HelloController@times');
-
-Route::namespace('App\Http\Controllers\Api')->prefix('auth')->group(function () {
-    Route::get('/', 'AuthController@me')->name('me');
-    Route::post('/login', 'AuthController@login')->name('login');
-    Route::post('/logout', 'AuthController@logout')->name('logout');
-});
-
-Route::middleware('auth:api')->group(function () {
-    Route::apiResource('products', 'App\Http\Controllers\Api\ProductController');
-    Route::apiResource('suppliers', 'App\Http\Controllers\Api\SupplierController');
-    Route::get('products/my/{product}', 'App\Http\Controllers\Api\ProductController@demoModelBinding');
-});
