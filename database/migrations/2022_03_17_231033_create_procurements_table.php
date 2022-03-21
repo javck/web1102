@@ -13,7 +13,7 @@ class CreateProcurementsTable extends Migration {
 	public function up() {
 		Schema::create('procurements', function (Blueprint $table) {
 			$table->id();
-			$table->bigInteger('supplier_id');
+			$table->foreignId('supplier_id')->constrained();
 			$table->string('originator', 100);
 			$table->bigInteger('employee_id');
 			$table->char('type', 1)->default("1");
@@ -36,6 +36,10 @@ class CreateProcurementsTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
+		Schema::table('procurements', function (Blueprint $table) {
+			$table->dropForeign(['supplier_id']);
+		});
+
 		Schema::dropIfExists('procurements');
 	}
 }

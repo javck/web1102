@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class OrderProductFactory extends Factory {
+class ProductSaleFactory extends Factory {
 	/**
 	 * Define the model's default state.
 	 *
@@ -12,10 +12,10 @@ class OrderProductFactory extends Factory {
 	 */
 	public function definition() {
 		return [
-			'order_id' => rand(1, 10),
+			'sale_id' => rand(1, 10),
 			'product_id' => rand(1, 5),
 			'unit_price' => $this->faker->randomFloat,
-			'qty' => rand(1, 50),
+			'qty' => rand(1, 300),
 		];
 	}
 }

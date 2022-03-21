@@ -13,7 +13,7 @@ class CreateOrdersTable extends Migration {
 	public function up() {
 		Schema::create('orders', function (Blueprint $table) {
 			$table->id();
-			$table->bigInteger('customer_id');
+			$table->foreignId('customer_id')->constrained();
 			$table->char('type', 1)->default("1");
 			$table->bigInteger('employee_id');
 			$table->string('email', 50);
@@ -39,6 +39,10 @@ class CreateOrdersTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
+		Schema::table('orders', function (Blueprint $table) {
+			$table->dropForeign(['customer_id']);
+		});
+
 		Schema::dropIfExists('orders');
 	}
 }

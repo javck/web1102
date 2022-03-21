@@ -2,20 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Models\OrderProduct;
+use App\Models\Category;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
-class OrderProductSeeder extends Seeder {
+class CategorySeeder extends Seeder {
 	/**
 	 * Run the database seeds.
 	 *
 	 * @return void
 	 */
 	public function run() {
-		//把資料全部清光
-		OrderProduct::truncate();
+		Category::truncate();
 		//建立新資料
-		OrderProduct::factory()->times(50)->create();
+		Category::factory()->times(5)->create();
 	}
 }

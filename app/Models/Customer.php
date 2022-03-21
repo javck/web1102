@@ -4,14 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Customer extends Model
-{
-    use HasFactory;
+class Customer extends Model {
+	use HasFactory;
 
-    public function sales()
-    {
-        return $this->hasMany(Sale::class);
-    }
+	protected $fillable = ['name', 'ear_no', 'contact', 'birthday', 'gender', 'address', 'phone', 'email', 'membership', 'userid', 'pwd', 'validation', 'activation'];
 }
