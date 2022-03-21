@@ -4,6 +4,7 @@ use App\Models\Sale;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Customer;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 /*
@@ -155,4 +156,27 @@ Route::get('/orders/getProducts', function () {
 Route::get('/products/getOrders', function () {
     $product = Product::find(1);
     dd($product->orders()->first()->pivot->unit_price);
+});
+
+Route::get('/sales/accessor_demo', function () {
+    $sale = Sale::find(1);
+    dd($sale->total);
+});
+
+Route::get('/sales/mutator_demo', function () {
+    $sale = Sale::find(1);
+    $sale->shipping_state = '遺失';
+    $sale->save();
+});
+
+Route::get('carbon_demo', function () {
+    //$sale = Sale::find(1);
+    $supplier = Supplier::find(1);
+    //return $sale->created_at->diffForHumans();
+    return $supplier->contract_start->diffForHumans();
+});
+
+Route::get('casting_demo', function () {
+    $sale = Sale::find(1);
+    dd($sale->remark[0]);
 });

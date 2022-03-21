@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $status = false;
-        $products = Product::where('category_id', '中等')->where('supplier_id', 2)->orderBy('qty_instock', 'asc')->get();
+        $products = Product::enabled()->orderBy('qty_instock', 'asc')->get();
         if (isset($products)) {
             $status = true;
         }
@@ -51,7 +51,7 @@ class ProductController extends Controller
     {
         $status = false;
         //$product = Product::findOrFail($id);
-        $product = Product::where('category_id', 'Game')->first();
+        $product = Product::category('Game')->first();
         if (isset($product)) {
             $status = true;
         }
