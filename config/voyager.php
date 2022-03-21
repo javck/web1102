@@ -144,9 +144,7 @@ return [
             ],
         ],
 
-        'widgets' => [
-
-        ],
+        'widgets' => [],
 
     ],
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
+use App\Models\Supplier;
 
 class MySiteController extends Controller
 {
@@ -44,7 +45,7 @@ class MySiteController extends Controller
     public function renderContactPage()
     {
         //$modes = ['blog' => '部落格', 'film' => '影片', 'tweat' => 'TWEAT'];
-        $modes = ['影片' => ['video' => '長影片', 'tiktok' => '短影片'], '文章' => ['blog' => '部落格', 'tweat' => 'TWEAT']];
+        $modes = Supplier::pluck('name', 'id');
         //dd($modes);
         return view('contacts.create', compact('modes'));
     }
