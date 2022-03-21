@@ -32,4 +32,5 @@ Route::post('/hello', 'App\Http\Controllers\Api\HelloController@postHello');
 Route::post('/times', 'App\Http\Controllers\Api\HelloController@times');
 
 Route::apiResource('products', 'App\Http\Controllers\Api\ProductController');
+Route::apiResource('suppliers', 'App\Http\Controllers\Api\SupplierController');
 Route::get('products/my/{product}', 'App\Http\Controllers\Api\ProductController@demoModelBinding');
