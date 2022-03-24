@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Office;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,7 @@ Route::group(['prefix' => '/demo', 'namespace' => '\App\Http\Controllers'], func
 });
 
 Route::get('/', '\App\Http\Controllers\SiteController@renderWelcomePage');
+Route::get('/store', '\App\Http\Controllers\SiteController@renderStorePage');
 Route::view('/404-page', '404-page');
 
 //後台====================================
@@ -86,3 +88,12 @@ Route::get('pluck_demo', function () {
 });
 
 Route::view('/menu/demo', 'menu.frontend');
+
+Route::get('/offices/del/{office}', function (Office $office) {
+    $office->delete();
+    return '刪除成功';
+});
+
+Route::get('/offices', function () {
+    dd(Office::count());
+});

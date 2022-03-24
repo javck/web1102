@@ -46,12 +46,12 @@ class SiteController extends Controller
     {
         $items_slider = Element::where('page', 'home')->where('position', 'slider')->where('enabled', 1)->orderBy('sort', 'asc')->get();
         $items_row1 = Element::where('page', 'home')->where('position', 'row1')->where('enabled', 1)->orderBy('sort', 'asc')->get();
-        $item_row2_video = Element::where('page', 'home')->where('position', 'row2')->where('mode','richTxt')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $item_row2_video = Element::where('page', 'home')->where('position', 'row2')->where('mode', 'richTxt')->where('enabled', 1)->orderBy('sort', 'asc')->first();
         $items_row2 = Element::where('page', 'home')->where('position', 'row2')->where('mode', 'iconTxt')->where('enabled', 1)->orderBy('sort', 'asc')->get();
         $item_row3_top = Element::where('page', 'home')->where('position', 'row3')->where('mode', 'txt')->where('enabled', 1)->orderBy('sort', 'asc')->first();
         $items_row3      = Element::where('page', 'home')->where('position', 'row3')->where('mode', 'imgText')->where('enabled', 1)->orderBy('sort', 'asc')->get();
 
-        return view('demos.index',compact('items_slider','items_row1','item_row2_video','items_row2','item_row3_top','items_row3'));
+        return view('demos.index', compact('items_slider', 'items_row1', 'item_row2_video', 'items_row2', 'item_row3_top', 'items_row3'));
     }
 
     //關於我們頁面
@@ -64,7 +64,7 @@ class SiteController extends Controller
         $item_row4_top = Element::where('page', 'about')->where('position', 'row4_top')->where('enabled', 1)->orderBy('sort', 'asc')->first();
         $items_row4 = Element::where('page', 'about')->where('position', 'row4')->where('enabled', 1)->orderBy('sort', 'asc')->get();
 
-        return view('demos.about',compact('item_row1','items_row2','item_row3_top','items_row3','item_row4_top','items_row4'));
+        return view('demos.about', compact('item_row1', 'items_row2', 'item_row3_top', 'items_row3', 'item_row4_top', 'items_row4'));
     }
 
     //分類所有文章頁面
@@ -74,8 +74,8 @@ class SiteController extends Controller
         $articles_feature = Article::where('featured', true)->where('status', 'published')->orderBy('sort', 'asc')->orderBy('created_at', 'desc')->get();
         $tags = Tag::where('enabled', 1)->where('type', 'like', '%def%')->orderBy('sort', 'asc')->get();
         $articleQty = Article::where('cgy_id', $cgy->id)->where('status', 'published')->count();
-        $cgys = Cgy::where('enabled',1)->get();
-        return view('demos.articles', compact('cgy','articles', 'articleQty','articles_feature','tags','cgys'));
+        $cgys = Cgy::where('enabled', 1)->get();
+        return view('demos.articles', compact('cgy', 'articles', 'articleQty', 'articles_feature', 'tags', 'cgys'));
     }
 
     //文章詳細頁面
@@ -84,7 +84,7 @@ class SiteController extends Controller
         $tags = Tag::where('enabled', 1)->where('type', 'like', '%def%')->orderBy('sort', 'asc')->get();
         $cgys = Cgy::where('enabled', 1)->get();
         $articles_feature = Article::where('featured', true)->where('status', 'published')->orderBy('sort', 'asc')->orderBy('created_at', 'desc')->get();
-        return view('demos.article',compact('article','tags','cgys','articles_feature'));
+        return view('demos.article', compact('article', 'tags', 'cgys', 'articles_feature'));
     }
 
     //聯絡我們頁面
@@ -92,19 +92,19 @@ class SiteController extends Controller
     {
         $sources  = json_decode(setting('constant.sources'), true);
         $services = json_decode(setting('constant.services'), true);
-        return view('demos.contact',compact('sources','services'));
+        return view('demos.contact', compact('sources', 'services'));
     }
 
     //我們的服務頁面
     public function renderServicesPage()
     {
         $items_row1 = Element::where('page', 'services')->where('position', 'row1')->where('enabled', 1)->orderBy('sort', 'asc')->get();
-        $item_row2_video = Element::where('page', 'services')->where('position', 'row2')->where('mode','richTxt')->where('enabled', 1)->orderBy('sort', 'asc')->first();
+        $item_row2_video = Element::where('page', 'services')->where('position', 'row2')->where('mode', 'richTxt')->where('enabled', 1)->orderBy('sort', 'asc')->first();
         $items_row2 = Element::where('page', 'services')->where('position', 'row2')->where('mode', 'iconTxt')->where('enabled', 1)->orderBy('sort', 'asc')->get();
         $items_row3 = Element::where('page', 'services')->where('position', 'row3')->where('enabled', 1)->orderBy('sort', 'asc')->get();
         $item_price_top = Element::where('page', 'services')->where('position', 'price_top')->where('enabled', 1)->orderBy('sort', 'asc')->first();
         $items_prices = Element::where('page', 'services')->where('position', 'prices')->where('enabled', 1)->orderBy('sort', 'asc')->get();
-        return view('demos.services', compact('items_row1','item_row2_video','items_row2','items_row3','item_price_top','items_prices'));
+        return view('demos.services', compact('items_row1', 'item_row2_video', 'items_row2', 'items_row3', 'item_price_top', 'items_prices'));
     }
 
     //作品頁面
@@ -112,23 +112,25 @@ class SiteController extends Controller
     {
         $tags   = Tag::where('enabled', 1)->where('type', 'like', '%portfolio%')->orderBy('sort', 'asc')->get();
         $medias = Media::where('enabled', 1)->orderBy('sort', 'asc')->get();
-        return view('demos.portfolio',compact('tags','medias'));
+        return view('demos.portfolio', compact('tags', 'medias'));
     }
 
     //作品詳細資料頁面
     public function renderPortfolioDetailPage(Media $media)
     {
-        return view('demos.portfolioDetail',compact('media'));
+        return view('demos.portfolioDetail', compact('media'));
     }
 
     //感謝頁
-    public function renderThankPage() {
+    public function renderThankPage()
+    {
         $item_row1 = Element::where('page', 'services')->where('position', 'row1')->where('enabled', 1)->orderBy('sort', 'asc')->first();
-        return view('demos.thank',compact('item_row1'));
+        return view('demos.thank', compact('item_row1'));
     }
 
     //政策頁
-    public function renderPolicyPage() {
+    public function renderPolicyPage()
+    {
         return view('policy');
     }
 
@@ -165,7 +167,7 @@ class SiteController extends Controller
         $validatedData = $request->validate($rules);
 
         //只取用指定欄位
-        $inputs = $request->only(['name','email','subject','message','source','service']);
+        $inputs = $request->only(['name', 'email', 'subject', 'message', 'source', 'service']);
 
         $contact = Contact::create($inputs);
 
@@ -178,13 +180,18 @@ class SiteController extends Controller
                     Mail::send('emails.notifyContact', ['title' => '您有新的聯絡單', 'contact' => $contact, 'action' => ['title' => '前往', 'url' => $url]], function ($message) {
                         $message->to(setting('admin.admin_mail'), '管理員')->subject('您有新聯絡單');
                     });
-
                 }
             }
             return __('Your message has been sent. Thank you!');
         } else {
             return __('Your message send failed. Please send again!');
         }
+    }
 
+    public function renderStorePage()
+    {
+        $title = '我的商店';
+        $price = 1000;
+        return view('demo.store', compact('title', 'price'));
     }
 }
