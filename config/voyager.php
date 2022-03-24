@@ -138,13 +138,20 @@ return [
                 'icon_class'   => 'voyager-home',
                 'target_blank' => true,
             ],
+            'Google搜尋引擎' => [
+                'route'        => 'https://www.google.com',
+                'icon_class'   => 'voyager-data',
+                'target_blank' => true,
+            ],
             'voyager::generic.logout' => [
                 'route'      => 'voyager.logout',
                 'icon_class' => 'voyager-power',
             ],
         ],
 
-        'widgets' => [],
+        'widgets' => [
+            'App\Http\Widgets\UserDimmer'
+        ],
 
     ],
 

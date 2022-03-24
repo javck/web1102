@@ -84,3 +84,5 @@ Route::get('pluck_demo', function () {
     $suppliers = Supplier::pluck('name', 'id');
     dd($suppliers);
 });
+
+Route::view('/menu/demo', 'menu.frontend');
