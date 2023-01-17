@@ -177,7 +177,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
                             <div class="product-img">
-                                <img src="img/gallery/new_product2.png" alt="">
+                                <img src="{{ Voyager::image('images/17.jpg') }}" alt="">
                             </div>
                             <div class="product-caption">
                                 <h3><a href="product_details.html">Thermo Ball Etip Gloves</a></h3>

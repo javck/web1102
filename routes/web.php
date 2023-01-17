@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\User;
 use App\Models\Office;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +51,25 @@ Route::group(['prefix' => '/demo', 'namespace' => '\App\Http\Controllers'], func
 Route::get('/', '\App\Http\Controllers\SiteController@renderWelcomePage');
 Route::get('/store', '\App\Http\Controllers\SiteController@renderStorePage');
 Route::view('/404-page', '404-page');
+
+Route::get('auth_check', function () {
+    $result = Auth::check();
+    return $result;
+});
+
+Route::get('auth_data', function () {
+    $result = Auth::id();
+    return $result;
+})->middleware('auth.basic');
+
+Route::get('mylogin', function () {
+    $user = User::first();
+    Auth::loginUsingId($user->id);
+});
+
+Route::get('mylogout', function () {
+    Auth::logout();
+})->middleware('auth');
 
 //後台====================================
 $middleware = ['web', 'javck.roleCheck', 'javck.verifyEnabled'];
